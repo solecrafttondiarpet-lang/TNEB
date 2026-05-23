@@ -1,0 +1,72 @@
+<section class="section container padding-top-large">
+  <div class="text-center" style="margin-bottom: 60px;">
+    <h1 class="page-title fade-in">Our <span class="text-primary">Achievements</span></h1>
+    <p class="subtitle fade-in delay-1">Providing Technology Solutions round the clock to serve our prestigious
+      clients.</p>
+  </div>
+
+  <div class="portfolio-grid fade-in delay-2">
+    @for (project of projects; track project.title) {
+    <div class="portfolio-card" (click)="openProject(project)">
+      <div class="image-wrapper">
+        <img [src]="project.imageUrl" [alt]="project.title" class="project-img">
+      </div>
+    </div>
+    }
+  </div>
+
+  <div class="behance-action fade-in delay-3" style="text-align: center; margin-top: 80px; padding-bottom: 60px;">
+    <a href="https://www.behance.net/vigneshvignesh270" target="_blank" rel="noopener noreferrer" class="btn-primary">
+      Explore More on Behance
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" style="margin-left: 10px; vertical-align: middle;">
+        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+        <polyline points="15 3 21 3 21 9"></polyline>
+        <line x1="10" y1="14" x2="21" y2="3"></line>
+      </svg>
+    </a>
+  </div>
+
+  <!-- Popup Modal for Behance Embed styled like Magnific -->
+  @if (selectedProject) {
+  <div class="modal-overlay" (click)="closeProject()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      
+      <!-- Top header bar styled like Magnific -->
+      <div class="modal-top-bar">
+        <div class="author-info">
+          <div class="author-avatar">T</div>
+          <div class="author-details">
+            <h3 class="modal-project-title">{{selectedProject.title}}</h3>
+            <span class="author-name">TNA Web • Creative Agency</span>
+          </div>
+        </div>
+        
+        <div class="action-buttons">
+          <a [href]="selectedProject.behanceUrl || selectedProject.embedUrl" target="_blank" class="magnific-action-btn external-link" title="Open in Behance">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 4px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            <span>Open Behance</span>
+          </a>
+          <button class="magnific-close-btn" (click)="closeProject()" title="Close">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </div>
+      </div>
+      
+      <div class="modal-body">
+        <div class="modal-iframe-wrapper">
+          <iframe [src]="selectedProject.embedUrl | safe" width="100%" allowfullscreen frameborder="0"
+            sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+            allow="clipboard-write" refererpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+      </div>
+      
+      <!-- Bottom bar styled like Magnific -->
+      <div class="modal-bottom-bar">
+        <p class="project-desc-text">{{selectedProject.description}}</p>
+      </div>
+
+    </div>
+  </div>
+  }
+</section>

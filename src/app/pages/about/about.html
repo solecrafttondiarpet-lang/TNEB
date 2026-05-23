@@ -1,0 +1,25 @@
+<section class="section about-hero">
+  <div class="container">
+    <div class="logo-cloud">
+      @for (icon of icons; track $index) {
+        <div class="floating-logo" [ngClass]="'logo-' + $index">
+          <span class="icon-content">{{icon.content}}</span>
+          <span class="icon-label">{{icon.label}}</span>
+        </div>
+      }
+    </div>
+
+    <div class="hero-stats-content fade-in">
+      <h2 class="section-title text-orange">Who We Are?</h2>
+      
+      <div class="about-mission">
+        <p class="lead">We’re brand architects at heart, imaginative minds by nature, tech connoisseurs in action, and unified collaborators at our foundation.</p>
+        
+        <div class="mission-details">
+          <p>Our mission is audacious yet grounded—to take the finest Indian creative ingenuity to a global platform. With an insatiable drive to deliver measurable impact, we partner with in-house visionaries, seasoned collaborators, and technology pioneers to stretch the limits of creativity.</p>
+          <p>Every move we make is designed to elevate your brand, amplify its reach, and carve a distinct presence in an ever-evolving digital world.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
