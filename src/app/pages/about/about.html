@@ -1,25 +1,80 @@
 <section class="section about-hero">
   <div class="container">
-    <div class="logo-cloud">
+    <div class="logo-cloud" aria-hidden="true">
       @for (icon of icons; track $index) {
         <div class="floating-logo" [ngClass]="'logo-' + $index">
-          <span class="icon-content">{{icon.content}}</span>
-          <span class="icon-label">{{icon.label}}</span>
+          <span class="icon-content">{{ icon.content }}</span>
+          <span class="icon-label">{{ icon.label }}</span>
         </div>
       }
     </div>
 
     <div class="hero-stats-content fade-in">
-      <h2 class="section-title text-orange">Who We Are?</h2>
-      
+      <h1 class="section-title text-orange">We Build Brands With Meaning, Strategy, and Impact</h1>
+
       <div class="about-mission">
-        <p class="lead">We’re brand architects at heart, imaginative minds by nature, tech connoisseurs in action, and unified collaborators at our foundation.</p>
-        
+        <p class="lead">
+          Think Nexora is a creative advertising and branding agency built for ambitious businesses seeking meaningful growth and market relevance.
+        </p>
+
         <div class="mission-details">
-          <p>Our mission is audacious yet grounded—to take the finest Indian creative ingenuity to a global platform. With an insatiable drive to deliver measurable impact, we partner with in-house visionaries, seasoned collaborators, and technology pioneers to stretch the limits of creativity.</p>
-          <p>Every move we make is designed to elevate your brand, amplify its reach, and carve a distinct presence in an ever-evolving digital world.</p>
+          <p>
+            With expertise across branding, filmmaking, digital campaigns, and creative strategy, we help businesses communicate with clarity, confidence, and impact.
+          </p>
+          <p>
+            Our team combines storytelling, design, and performance marketing to craft campaigns that not only capture attention — but create lasting impressions.
+          </p>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="section container about-values reveal-on-scroll">
+  <div class="values-grid">
+    <article class="value-card">
+      <h2>Our Mission</h2>
+      <p>To help businesses create stronger brand perception through strategic creativity, cinematic storytelling, and integrated marketing solutions.</p>
+    </article>
+    <article class="value-card">
+      <h2>Our Vision</h2>
+      <p>To become one of India's most respected creative agencies known for premium storytelling, impactful branding, and meaningful business growth.</p>
+    </article>
+  </div>
+</section>
+
+<section class="section reveal-section">
+  <div class="reveal-wrapper" [class.reveal-complete]="revealComplete">
+    <div class="reveal-stack" #revealStack>
+      <img
+        class="reveal-layer reveal-color"
+        src="assets/thinknexora2.jpeg"
+        alt="Think Nexora creative team at work — branding and advertising agency"
+        draggable="false"
+      />
+
+      <img
+        class="reveal-layer reveal-bw"
+        src="assets/thinknexora1.jpeg"
+        alt="Think Nexora creative sketch concept — brand identity design process"
+        draggable="false"
+      />
+
+      <div class="glass-mirror" [class.active]="revealComplete" aria-hidden="true">
+        <div class="glass-glow"></div>
+        <div class="glass-reflection"></div>
+        <div class="glass-shine"></div>
+        <div class="glass-edge"></div>
+      </div>
+
+      <canvas #scratchCanvas class="reveal-canvas" aria-label="Interactive scratch reveal — Think Nexora brand story"></canvas>
+    </div>
+
+    <div class="particles" #particlesContainer></div>
+
+    <div class="reveal-content" [class.active]="revealComplete">
+      <div class="logo glow">Think Nexora</div>
+      <div class="tagline">Innovative Thinking • Delivering Expectations Beyond Limits</div>
     </div>
   </div>
 </section>

@@ -1,0 +1,9 @@
+.page-content {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.page-content > *:last-child {
+  margin-bottom: 0;
+}

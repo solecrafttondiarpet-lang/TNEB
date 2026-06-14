@@ -1,40 +1,80 @@
 <section class="section container padding-top-large">
   <div class="contact-grid fade-in">
     <div class="contact-info">
-      <h1 class="page-title">Let's <span class="text-orange">Talk</span></h1>
-      <p class="subtitle">Let’s Build Something Bold, Together! Ready to create something extraordinary? Drop us a line.</p>
-      
+      <h1 class="page-title">Let's Build Something <span class="text-orange">Remarkable</span></h1>
+      <p class="subtitle">
+        Whether you're launching a new brand, scaling an existing business, or planning a major campaign — Think Nexora is ready to help you create meaningful impact.
+      </p>
+
       <div class="info-block">
-        <h3>Contact Details</h3>
-        <p><strong>Call Us:</strong> 8220378241, 9042928102</p>
-        <p><strong>Email:</strong> monicaalbert.writes&#64;gmail.com</p>
+        <h2>Think Nexora</h2>
+        <h3>Locations</h3>
+        <p>Chennai, Tamil Nadu</p>
+        <p>Bangalore, Karnataka</p>
       </div>
 
       <div class="info-block">
-        <h3>Office</h3>
-        <p>MKN road, Alandur</p>
-        <p><strong>Working Hours:</strong> Mon–Sat | 10 AM – 7 PM</p>
+        <h3>Email</h3>
+        <p><a href="mailto:thinknexora@gmail.com">thinknexora@gmail.com</a></p>
       </div>
 
-      <div class="info-block-extra" style="margin-top: 40px; border-top: 1px solid var(--border-color); padding-top: 20px;">
-        <p style="font-size: 0.9rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px;">
-          HAVE A PROJECT IN MIND? NEED HELP GROWING YOUR BRAND ONLINE? WHETHER IT’S STRATEGY, DESIGN, MEDIA, OR MAGIC! WE’RE HERE TO MAKE IT HAPPEN.
-        </p>
+      <div class="info-block">
+        <h3>Phone</h3>
+        <p><a href="tel:+919042928102">+91 90429 28102</a></p>
+      </div>
+
+      <div class="info-block">
+        <h3>Working Hours</h3>
+        <p>Mon – Sat</p>
+        <p>9:00 AM – 7:00 PM IST</p>
       </div>
     </div>
 
     <div class="contact-form">
       <form (submit)="$event.preventDefault()">
         <div class="input-group">
-          <input type="text" placeholder="Your Name" required>
+          <label for="fullName">Full Name *</label>
+          <input id="fullName" type="text" name="fullName" placeholder="Your full name" required>
         </div>
         <div class="input-group">
-          <input type="email" placeholder="Email Address" required>
+          <label for="companyName">Company Name *</label>
+          <input id="companyName" type="text" name="companyName" placeholder="Your company name" required>
         </div>
         <div class="input-group">
-          <textarea placeholder="Tell us about your project" rows="5" required></textarea>
+          <label for="email">Email Address *</label>
+          <input id="email" type="email" name="email" placeholder="you@company.com" required>
         </div>
-        <button type="submit" class="btn-primary">Send Message</button>
+        <div class="input-group">
+          <label for="phone">Phone Number *</label>
+          <input id="phone" type="tel" name="phone" placeholder="+91" required>
+        </div>
+        <div class="input-group">
+          <label for="service">Service Required</label>
+          <select id="service" name="service">
+            <option value="">Select a service</option>
+            <option value="branding">Branding</option>
+            <option value="corporate-films">Corporate Films</option>
+            <option value="digital-marketing">Digital Marketing</option>
+            <option value="social-media">Social Media Management</option>
+            <option value="outdoor">Outdoor Advertising</option>
+            <option value="event-branding">Event Branding</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label for="budget">Project Budget</label>
+          <select id="budget" name="budget">
+            <option value="">Select budget range</option>
+            <option value="under-1l">Under ₹1 Lakh</option>
+            <option value="1l-5l">₹1 – 5 Lakhs</option>
+            <option value="5l-15l">₹5 – 15 Lakhs</option>
+            <option value="15l-plus">₹15 Lakhs+</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label for="details">Project Details *</label>
+          <textarea id="details" name="details" placeholder="Tell us about your project goals and timeline" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn-primary">Schedule a Consultation</button>
       </form>
     </div>
   </div>

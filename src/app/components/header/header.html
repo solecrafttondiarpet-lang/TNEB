@@ -1,19 +1,21 @@
 <header class="header">
-  <div class="header-container container">
-    <a routerLink="/" class="logo">
-      <img src="logo.png" alt="TNA WEB Logo" class="logo-img">
+  <div class="header-container">
+    <a routerLink="/" class="logo" aria-label="Think Nexora — Home">
+      <img src="logo.png" alt="Think Nexora logo — Premium advertising and branding agency" class="logo-img">
     </a>
-    
-    <button class="menu-toggle" (click)="toggleMenu()" [class.active]="isMenuOpen()">
+
+    <button class="menu-toggle" (click)="toggleMenu()" [class.active]="isMenuOpen()" aria-label="Toggle navigation menu">
       <span></span><span></span><span></span>
     </button>
 
-    <nav class="nav-links" [class.open]="isMenuOpen()">
+    <nav class="nav-links" [class.open]="isMenuOpen()" aria-label="Main navigation">
       <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="hover-lift" (click)="closeMenu()">Home</a>
-      <a routerLink="/about" routerLinkActive="active" class="hover-lift" (click)="closeMenu()">About</a>
       <a routerLink="/services" routerLinkActive="active" class="hover-lift" (click)="closeMenu()">Services</a>
       <a routerLink="/portfolio" routerLinkActive="active" class="hover-lift" (click)="closeMenu()">Portfolio</a>
+      <a routerLink="/about" routerLinkActive="active" class="hover-lift" (click)="closeMenu()">About</a>
+      <a routerLink="/insights" routerLinkActive="active" class="hover-lift" (click)="closeMenu()">Insights</a>
       <a routerLink="/contact" routerLinkActive="active" class="hover-lift" (click)="closeMenu()">Contact</a>
+      <a routerLink="/contact" class="nav-cta btn-primary" (click)="closeMenu()">Start a Project</a>
     </nav>
   </div>
 </header>

@@ -1,0 +1,18 @@
+<section class="section container padding-top-large">
+  <header class="page-header fade-in">
+    <h1 class="page-title">Insights &amp; <span class="text-orange">Perspectives</span></h1>
+    <p class="subtitle">
+      Ideas, strategies, and industry perspectives from the worlds of branding, advertising, filmmaking, and digital growth.
+    </p>
+  </header>
+
+  <div class="insights-grid fade-in delay-1">
+    @for (article of insights; track article.title) {
+      <article class="insight-card">
+        <h2>{{ article.title }}</h2>
+        <p>{{ article.excerpt }}</p>
+        <a routerLink="/contact" class="insight-link">Discuss with Think Nexora</a>
+      </article>
+    }
+  </div>
+</section>
