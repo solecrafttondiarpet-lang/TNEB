@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { SOCIAL_LINKS } from '../../data/social-links';
 
 @Component({
   selector: 'app-footer',
@@ -7,4 +8,6 @@ import { RouterModule } from '@angular/router';
   templateUrl: './footer.html',
   styleUrl: './footer.css',
 })
-export class Footer {}
+export class Footer {
+  socialLinks = SOCIAL_LINKS;
+}

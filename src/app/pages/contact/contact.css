@@ -93,6 +93,45 @@
   margin-top: 4px;
 }
 
+.btn-primary:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.form-alert {
+  padding: 14px 16px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.form-alert-success {
+  background: rgba(0, 229, 255, 0.12);
+  border: 1px solid rgba(0, 229, 255, 0.35);
+  color: #d8fbff;
+}
+
+.form-alert-error {
+  background: rgba(255, 80, 80, 0.12);
+  border: 1px solid rgba(255, 120, 120, 0.35);
+  color: #ffd8d8;
+}
+
+.field-error {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.82rem;
+  color: #ffb4b4;
+}
+
+.input-group input.invalid,
+.input-group textarea.invalid,
+.input-group select.invalid {
+  border-color: rgba(255, 120, 120, 0.65);
+}
+
 .fade-in {
   opacity: 0;
   animation: fadeIn 1s ease forwards;

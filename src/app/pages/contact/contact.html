@@ -15,7 +15,7 @@
 
       <div class="info-block">
         <h3>Email</h3>
-        <p><a href="mailto:thinknexora@gmail.com">thinknexora@gmail.com</a></p>
+        <p><a [href]="'mailto:' + contactEmail">{{ contactEmail }}</a></p>
       </div>
 
       <div class="info-block">
@@ -31,26 +31,54 @@
     </div>
 
     <div class="contact-form">
-      <form (submit)="$event.preventDefault()">
+      @if (submitSuccess) {
+        <div class="form-alert form-alert-success" role="status">
+          Thank you! Your consultation request has been sent to {{ contactEmail }}. We will get back to you shortly.
+        </div>
+      }
+
+      @if (submitError) {
+        <div class="form-alert form-alert-error" role="alert">
+          {{ submitError }}
+        </div>
+      }
+
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
         <div class="input-group">
           <label for="fullName">Full Name *</label>
-          <input id="fullName" type="text" name="fullName" placeholder="Your full name" required>
+          <input id="fullName" type="text" formControlName="fullName" placeholder="Your full name" [class.invalid]="isInvalid('fullName')">
+          @if (isInvalid('fullName')) {
+            <span class="field-error">Full name is required.</span>
+          }
         </div>
+
         <div class="input-group">
           <label for="companyName">Company Name *</label>
-          <input id="companyName" type="text" name="companyName" placeholder="Your company name" required>
+          <input id="companyName" type="text" formControlName="companyName" placeholder="Your company name" [class.invalid]="isInvalid('companyName')">
+          @if (isInvalid('companyName')) {
+            <span class="field-error">Company name is required.</span>
+          }
         </div>
+
         <div class="input-group">
           <label for="email">Email Address *</label>
-          <input id="email" type="email" name="email" placeholder="you@company.com" required>
+          <input id="email" type="email" formControlName="email" placeholder="you@company.com" [class.invalid]="isInvalid('email')">
+          @if (isInvalid('email')) {
+            <span class="field-error">A valid email address is required.</span>
+          }
         </div>
+
         <div class="input-group">
           <label for="phone">Phone Number *</label>
-          <input id="phone" type="tel" name="phone" placeholder="+91" required>
+          <input id="phone" type="tel" formControlName="phone" placeholder="+91" [class.invalid]="isInvalid('phone')">
+          @if (isInvalid('phone')) {
+            <span class="field-error">Phone number is required.</span>
+          }
         </div>
+
         <div class="input-group">
           <label for="service">Service Required</label>
-          <select id="service" name="service">
+          <select id="service" formControlName="service">
             <option value="">Select a service</option>
             <option value="branding">Branding</option>
             <option value="corporate-films">Corporate Films</option>
@@ -60,9 +88,10 @@
             <option value="event-branding">Event Branding</option>
           </select>
         </div>
+
         <div class="input-group">
           <label for="budget">Project Budget</label>
-          <select id="budget" name="budget">
+          <select id="budget" formControlName="budget">
             <option value="">Select budget range</option>
             <option value="under-1l">Under ₹1 Lakh</option>
             <option value="1l-5l">₹1 – 5 Lakhs</option>
@@ -70,11 +99,18 @@
             <option value="15l-plus">₹15 Lakhs+</option>
           </select>
         </div>
+
         <div class="input-group">
           <label for="details">Project Details *</label>
-          <textarea id="details" name="details" placeholder="Tell us about your project goals and timeline" rows="5" required></textarea>
+          <textarea id="details" formControlName="details" placeholder="Tell us about your project goals and timeline" rows="5" [class.invalid]="isInvalid('details')"></textarea>
+          @if (isInvalid('details')) {
+            <span class="field-error">Project details are required.</span>
+          }
         </div>
-        <button type="submit" class="btn-primary">Schedule a Consultation</button>
+
+        <button type="submit" class="btn-primary" [disabled]="submitting">
+          {{ submitting ? 'Sending…' : 'Schedule a Consultation' }}
+        </button>
       </form>
     </div>
   </div>
