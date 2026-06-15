@@ -1,23 +1,36 @@
 <section class="section about-hero">
-  <div class="container">
+  <div class="about-hero-bg" aria-hidden="true">
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+  </div>
+
+  <div class="container about-hero-inner">
     <div class="logo-cloud" aria-hidden="true">
       @for (icon of icons; track $index) {
-        <div class="floating-logo" [ngClass]="'logo-' + $index">
+        <div
+          class="floating-logo"
+          [ngClass]="'logo-' + $index"
+          [style.animation-delay]="($index * 0.12) + 's'"
+        >
           <span class="icon-content">{{ icon.content }}</span>
-          <span class="icon-label">{{ icon.label }}</span>
         </div>
       }
     </div>
 
-    <div class="hero-stats-content fade-in">
-      <h1 class="section-title text-orange">We Build Brands With Meaning, Strategy, and Impact</h1>
+    <div class="hero-stats-content">
+      <p class="hero-eyebrow">Who We Are</p>
+
+      <h1 class="about-hero-title">
+        <span class="title-line reveal-up">We Build Brands With</span>
+        <span class="title-accent reveal-up delay-1">Meaning, Strategy &amp; Impact</span>
+      </h1>
 
       <div class="about-mission">
-        <p class="lead">
+        <p class="lead reveal-up delay-2">
           Think Nexora is a creative advertising and branding agency built for ambitious businesses seeking meaningful growth and market relevance.
         </p>
 
-        <div class="mission-details">
+        <div class="mission-details reveal-up delay-3">
           <p>
             With expertise across branding, filmmaking, digital campaigns, and creative strategy, we help businesses communicate with clarity, confidence, and impact.
           </p>
@@ -30,7 +43,7 @@
   </div>
 </section>
 
-<section class="section container about-values reveal-on-scroll">
+<section class="section container about-values">
   <div class="values-grid">
     <article class="value-card">
       <h2>Our Mission</h2>
